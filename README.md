@@ -2,6 +2,7 @@
 
 This app recommends books based on a user's preferred book genre.
 
+Check out live demo [here](https://book-bindr.vercel.app)
 ![BookBindr](./client/public/BookBindr.png)
 
 ## Data Structures
