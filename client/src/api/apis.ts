@@ -2,7 +2,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 
 const api = axios.create({
-  baseURL: 'http://localhost:6969',
+  baseURL: 'https://bookbindr.onrender.com',
 });
 
 export const getBookMatches = async ({genre,hobby}: {genre: string, hobby: string}) => {
