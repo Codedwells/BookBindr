@@ -1,10 +1,13 @@
 import cors from 'cors'
-import { Borgen, Logger } from 'borgen'
+import dotenv from 'dotenv'
 import express from 'express'
-import bodyParser from 'body-parser'
 import { books } from './books.js'
+import bodyParser from 'body-parser'
+import { Borgen, Logger } from 'borgen'
 
-const PORT = 6969
+dotenv.config()
+
+const PORT = process.NODE_ENV == 'production' ? process.env.PORT : 6969
 
 const app = express()
 
