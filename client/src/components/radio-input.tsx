@@ -23,6 +23,7 @@ function InputRadio({
         onChange={onChange}
         checked={checked}
         data-checked={checked}
+        className="cursor-pointer"
         {...props}
       />
       <label className="text-gray-700 text-base">{label}</label>

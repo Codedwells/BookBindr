@@ -1,5 +1,5 @@
 import cors from 'cors'
-import { Logger } from 'borgen'
+import {Borgen, Logger } from 'borgen'
 import express from 'express'
 import bodyParser from 'body-parser'
 
@@ -10,6 +10,7 @@ const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
+app.use(Borgen({}))
 
 const genres = [
     { name: 'Drama', score: 80 },
@@ -82,7 +83,7 @@ function vectorDifference(user, book) {
 }
 
 app.get('/recommend', (req, res) => {
-    let { genre} = req.query
+    let { genre } = req.query
     let userPrefs = genres.map((g) => (g.name === genre ? g.score : 0))
 
     // Best match
@@ -97,11 +98,11 @@ app.get('/recommend', (req, res) => {
         }
     })
 
-    res.json([
+    res.status(200).json([
         {
             title: bestMatch.title,
             link: bestMatch.link,
-        },
+        }
     ])
 })
 

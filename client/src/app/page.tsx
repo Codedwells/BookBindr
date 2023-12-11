@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import { BookMatchForm } from '@/components/forms/book-match'
 import NavBar from '@/components/navbar'
 
@@ -20,7 +23,17 @@ const BOOKS = [
   },
 ]
 
+export interface IBookType {
+  title: string
+  link: string
+}
+
 export default function Home() {
+  const [bookMatches, setBookMatches] = useState<IBookType[]>([])
+
+  function handleSetBooks(bookMatches: any) {
+    setBookMatches(bookMatches)
+  }
   return (
     <main className='min-h-screen max-w-screen bg-slate-50'>
       <NavBar />
@@ -35,21 +48,34 @@ export default function Home() {
           experience should be as unique as you are.
         </p>
 
-        <BookMatchForm className='max-w-md mt-12 mx-auto' />
+        <BookMatchForm
+          setBookMatches={handleSetBooks}
+          className='max-w-md mt-12 mx-auto'
+        />
 
-        <div className='mt-12 max-w-md mx-auto'>
-          <p className='text-sm font-medium'>Here are some of our favourite books:</p>
+        {bookMatches.length > 0 && (
+          <div className='mt-12 max-w-md mx-auto'>
+            <p className='text-sm font-medium'>
+              Here are some of our favourite books:
+            </p>
 
-          <ul className='mt-2 p-2 border rounded-md bg-white max-h-[200px] overflow-y-auto'>
-            {BOOKS.map((book) => {
-              return (
-                <li key={book.name} className='mt-1'>
-                  <a  href={book.link} target='_blank' className='text-sm hover:underline cursor-pointer'>- {book.name}</a>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
+            <ul className='mt-2 p-2 border rounded-md bg-white max-h-[200px] overflow-y-auto'>
+              {bookMatches.map((book) => {
+                return (
+                  <li key={book.title} className='mt-1'>
+                    <a
+                      href={book.link}
+                      target='_blank'
+                      className='text-sm hover:underline cursor-pointer'
+                    >
+                      - {book.title}
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        )}
       </div>
     </main>
   )
