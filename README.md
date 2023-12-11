@@ -2,6 +2,8 @@
 
 This app recommends books based on a user's preferred book genre.
 
+![BookBindr](./client/public/BookBindr.png)
+
 ## Data Structures
 
 **Genres**
