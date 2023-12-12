@@ -125,7 +125,14 @@ export function BookMatchForm({
             className={cn(buttonVariants())}
             disabled={isLoading}
           >
-            {isLoading ? 'Fetching book ...' : 'Get book'}
+            {isLoading ? (
+              <>
+                Matching books
+                <span className='text-lg pb-1.5 ml-3 animate-ping'>...</span>
+              </>
+            ) : (
+              'Get book'
+            )}
           </button>
         </div>
       </form>
