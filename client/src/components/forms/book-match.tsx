@@ -9,7 +9,7 @@ import { buttonVariants } from '../button'
 import { InputRadio } from '../radio-input'
 import { toast } from 'sonner'
 import { getBookMatches } from '@/api/apis'
-import { IBookType } from '@/app/page'
+import { IBookType } from '@/app/(home)/page'
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
   setBookMatches: (bookMatches: IBookType) => void
