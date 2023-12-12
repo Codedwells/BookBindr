@@ -2,26 +2,6 @@
 
 import { useState } from 'react'
 import { BookMatchForm } from '@/components/forms/book-match'
-import NavBar from '@/components/navbar'
-
-const BOOKS = [
-  {
-    name: 'The Hobbit',
-    link: 'https://www.goodreads.com/book/show/5907.The_Hobbit',
-  },
-  {
-    name: 'The Lord of the Rings',
-    link: 'https://www.goodreads.com/book/show/33.The_Lord_of_the_Rings',
-  },
-  {
-    name: 'The Chronicles of Narnia',
-    link: 'https://www.goodreads.com/book/show/11127.The_Chronicles_of_Narnia',
-  },
-  {
-    name: "The Hitchhiker's Guide to the Galaxy",
-    link: 'https://www.goodreads.com/book/show/11.The_Hitchhiker_s_Guide_to_the_Galaxy',
-  },
-]
 
 export interface IBookType {
   title: string
@@ -35,10 +15,9 @@ export default function Home() {
     setBookMatches(bookMatches)
   }
   return (
-    <main className='min-h-screen max-w-screen bg-slate-50'>
-      <NavBar />
+    <main className='min-h-screen pt-12 max-w-screen'>
 
-      <div className='lg:px-64 mt-12 mx-4'>
+      <div className='lg:px-64 mx-4'>
         <h1 className='scroll-m-20 text-4xl text-center font-extrabold tracking-tight lg:text-4xl'>
           Where Personality Meets Pages.
         </h1>
